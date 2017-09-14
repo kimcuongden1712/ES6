@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>01-let</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ecma.css">
+	<style type="text/css">
+		.container{margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; width: 100%;}
+		.starter-template{padding: 3rem 1.5rem;text-align: center;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="starter-template">
+			<h1>Differences Between Bootstrap 3 and 4</h1>
+            <a href="javascript:void(0);" onclick="togglelink()">link click</a>
+            <div id="id1"></div>
+		</div>
+        <!-- TEST AREA -->
+        <div class="col-*-12">
+            <div class="panel panel-defaut">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Test Let & Var</h1>
+                </div>
+                <div class="panel-body">
+                    <p class="text-info">Click button, hien hinh vuong, click hinh vuong hien so</p>
+                    <button class="btn btn-primary" onclick="drawShape()">Test</button>
+                    <button class="btn btn-primary" onclick="clearShape()">Clear</button>
+                    <div id="contentShap"></div>
+                </div>
+            </div>
+        </div>
+		<!-- <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="background:white;">Component</th>
+                    <th style="width:40%;background: white;">Bootstrap 3</th>
+                    <th style="width:40%;background: white;">Bootstrap 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="3" class="table-info">Global</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Source CSS Files
+                    </th>
+                    <td>
+                        <p>LESS</p>
+                    </td>
+                    <td>
+                        <p>SCSS</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Primary CSS Unit
+                    </th>
+                    <td>
+                        <p><code>px</code></p>
+                    </td>
+                    <td>
+                        <p><code>rem</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Media Queries Unit
+                    </th>
+                    <td>
+                        <p><code>px</code></p>
+                    </td>
+                    <td>
+                        <p><code>px</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Global Font Size
+                    </th>
+                    <td>
+                        <p><code>14px</code></p>
+                    </td>
+                    <td>
+                        <p><code>16px</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Default Fonts
+                    </th>
+                    <td>
+                        <p>Helvetica Neue, Helvetica, Arial, sans-serif</p>
+                    </td>
+                    <td>
+                        <p>Uses a "native font stack" (user's system fonts), with a fallback to Helvetica Neue, Arial, and sans-serif</p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">Grids</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Grid Tiers
+                    </th>
+                    <td>
+                        <p><strong>4 tier grid system</strong> (xs, sm, md, lg)</p>
+                    </td>
+                    <td>
+                        <p><<strong>5 tier grid system</strong> (xs, sm, md, lg, xl).</p>
+        
+                        <aside class="info">
+                            <p>Bootstrap 4 has removed the <code>xs</code> from the lowest break point. Therefore, <code>col-*</code> covers all devices (no need to specify the size in this case).</p>
+                        </aside>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Offsetting Columns
+                    </th>
+                    <td>
+                        <p>Uses <code>col-*-offset-*</code> classes to offset columns. For example, <code>col-md-offset-4</code>.</p>
+                    </td>
+                    <td>
+                        <p>Uses <code>offset-*-*</code> classes to offset columns. For example, <code>offset-md-4</code>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3" class="table-info">Tables</th>
+                </tr>        
+                <tr>
+                    <th class="table-secondary">
+                        Inverse Tables
+                    </th>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                    <td>
+                        <p>Added inverse tables with the <code>.table-inverse</code> class.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Table Head Styles
+                    </th>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                    <td>
+                        <p>Added table head styles with the <code>.thead-default</code> and <code>.thead-inverse</code> classes.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Condensed Tables
+                    </th>
+                    <td>
+                        <p><code>.table-condensed</code></p>
+                    </td>
+                    <td>
+                        <p><code>.table-sm</code></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Contextual Classes
+                    </th>
+                    <td>
+                        <p><strong>Bootstrap 3</strong> doesn't use the <code>.table-</code> prefix for its contextual classes.</p>
+                        <p>For example, Bootstrap 3 uses <code>.active</code> whereas Bootstrap 4 uses <code>.table-active</code>. Other than that, both versions use the same 5 contextual keywords (active, success, info, warning, danger).</p>
+                    </td>
+                    <td>
+                        <p>Added the <code>.table-</code> prefix for its contextual classes.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Responsive Tables
+                    </th>
+                    <td>
+                        <p>The <code>.table-responsive</code> class must be added to a parent <code class="tag">div</code> element.</p>
+                    </td>
+                    <td>
+                        <p>Can add <code>.table-responsive</code> to the actual <code class="tag">table</code> element.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Reflow Tables
+                    </th>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                    <td>
+                        <p><s>Added reflow tables with the <code>.table-reflow</code> class.</s> </p>
+                        <p><ins>Reflow tables have now been dropped.</ins></p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">Forms</th>
+                </tr>        
+                <tr>
+                    <th rowspan="2">
+                        Horizontal Forms
+                    </th>
+                    <td>
+                        <p>Horizontal forms require the <code>.form-horizontal</code> class.</p>
+                        <p>Forms don't require <code>.row</code> when using grids (although this class is still a requirement on <strong>Bootstrap 3 grids</strong> in general).</p>
+                    </td>
+                    <td>
+                        <p>Bootstrap 4 dropped the <code>.form-horizontal</code> class — it is no longer needed to display horizontal forms.</p>
+                        <p>Forms require the <code>.row</code> class when using grids.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Use <code>.control-label</code> when using grids for form layout.</p>
+                    </td>
+                    <td>
+                        <p>Bootstrap 4 uses <code>.col-form-label</code> * when using grids for form layout.</p>
+                        <p>* Note that Bootstrap 4 initially used <code>.form-control-label</code> but subesquently changed this to <code>.col-form-label</code>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Checkboxes and Radio Buttons
+                    </th>
+                    <td>
+                        <p>Uses <code>.radio</code>, <code>.radio-inline</code>, <code>.checkbox</code>, or <code>.checkbox-inline</code> to display checkboxes and radio buttons.</p>
+                    </td>
+                    <td>
+                        <p>Uses <code>.form-check</code>, <code>.form-check-label</code>, <code>.form-check-input</code>, and <code>.form-check-inline</code>.</p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Form Control Size
+                    </th>
+                    <td>
+                        <p>Use <code>.input-lg</code> and <code>.input-sm</code> to increase or decrease the size of an input control.</p>
+                    </td>
+                    <td>
+                        <p>Use <code>.form-control-lg</code> and <code>.form-control-sm</code> to increase or decrease the size of an input control.</p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Help Text
+                    </th>
+                    <td>
+                        <p>Use the <code>.help-block</code> class to display help text.</p>
+                    </td>
+                    <td>
+                        <p>Bootstrap 4 uses the <code>.form-text</code> class to display help text.</p>
+                        <p><s>Bootstrap 4 forms don't have an official class for help text. Instead, the <code>.text-muted</code> class was introduced for more flexibility.</s></p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Validation and Feedback Icons
+                    </th>
+                    <td>
+                        <p>Includes validation styles for error, warning, and success states on form controls (for example, <code>.has-warning</code>). To present icons on the input fields using Bootstrap 3, use <strong>glyphicons</strong>.</p>
+                    </td>
+                    <td>
+                        <p>Validation styles are not available for Bootstrap 4 forms. Use custom Bootstrap form validation messages instead. </p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Legends
+                    </th>
+                    <td>
+                        <p>No classes for styling the form legends.</p>
+                    </td>
+                    <td>
+                        <p>Provides the option of using <code>.col-form-legend</code> on <strong><code class="tag">legend</code></strong> elements to style it more like a label.</p>
+                    </td>
+                </tr>                            
+                <tr>
+                    <th class="table-secondary">
+                        Custom Forms
+                    </th>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                    <td>
+                        <p>Bootstrap 4 introduced <strong>custom forms</strong> — completely custom form elements that replace the browser defaults.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">
+                        Buttons
+                    </th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Styles
+                    </th>
+                    <td>
+                        <p>Includes the <code>.btn-default</code> and <code>.btn-info</code> classes.</p>
+                        <p>The <code>.btn-secondary</code> class isn't available in Bootstrap 3.</p>
+                    </td>
+                    <td>
+                        <p>Introduced the <code>.btn-secondary</code>, <code>.btn-light</code>, and <code>.btn-dark</code> classes.</p>
+                        <p>Dropped the <code>.btn-default</code> class.</p>
+                        <p>Note that the <code>.btn-info</code> class was initially dropped in Bootstrap 4 but then reappeared again.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Outline Buttons
+                    </th>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                    <td>
+                        <p>Introduced the <code>.btn-outline-*</code> classes for styling buttons with an outline color.</p>
+                        <p><s>Introduced the <code>.btn-*-outline</code> classes for styling buttons with an outline color.</s></p>
+                        <p>(The <code>.btn-*-outline</code> classes became <code>.btn-outline-*</code> in Alpha 3).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Button Sizes
+                    </th>
+                    <td>
+                        <p>The <code>.btn-xs</code> class is available.</p>
+                    </td>
+                    <td>
+                        <p>Dropped the <code>.btn-xs</code> class (only <code>.btn-sm</code> and <code>.btn-lg</code> are available now).</p>
+                    </td>
+                </tr>
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Images</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Responsive Images
+                    </th>
+                    <td>
+                        <p>Use <code>.img-responsive</code> class.</p>
+                    </td>
+                    <td>
+                        <p>Use <code>.img-fluid</code> class.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Image Alignment
+                    </th>
+                    <td>
+                        <p>Use <code>.pull-right</code>, <code>.pull-left</code>, and <code>.center-block</code> helper classes.</p>
+                    </td>
+                    <td>
+                        <p>Uses <code>.m-x-auto</code> instead of <code>.center-block</code> to align block-level images.</p>
+                        <p>Can also use the various <code>.pull-*-right</code> and <code>.pull-*-left</code> responsive helper classes, as well as the <code>.text-*-left</code>, <code>.text-*-center</code>, and  <code>.text-*-right</code> helper classes on the image's parent.</p>
+                        <p>Can use the various <code>.pull-*-none</code> classes to disable floating.</p>
+        
+                    </td>
+                </tr>
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Media Objects</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Classes
+                    </th>
+                    <td>
+                        <p>Includes many different classes for media objects, including <code>.media</code>, <code>.media-body</code> <code>.media-object</code>, <code>.media-heading</code>, <code>.media-right</code>, <code>.media-left</code>, and <code>.media-list</code> and <code>.media-body</code>. </p>
+                    </td>
+                    <td>
+                        <p>Uses just <code>.media</code> class. Margins can be applied using spacer utilities. Media objects are flexbox enabled in Bootstrap 4, so the various flexbox classes can also be applied (such as reordering, etc).</p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">
+                        Dropdowns
+                    </th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Structure
+                    </th>
+                    <td>
+                        <p>Apply dropdowns to lists (i.e. using <strong><code class="tag">ul</code></strong> and <strong><code class="tag">li</code></strong>).</p>
+                    </td>
+                    <td>
+                        <p>Dropdowns can be built with <strong><code class="tag">ul</code></strong> or <strong><code class="tag">div</code></strong>s.</p>
+                        <p>Apply the <code>.dropdown-item</code> to a <strong><code class="tag">a</code></strong> or <strong><code class="tag">button</code></strong> element and wrap them all in a <strong><code class="tag">div</code></strong> (or <strong><code class="tag">ul</code></strong>) with a <code>.dropdown-menu</code> class applied.</p>
+                    </td>
+                </tr>                
+                <tr>
+                    <th class="table-secondary">
+                        Menu Headers
+                    </th>
+                    <td>
+                        <p>Apply <code>.dropdown-header</code> to the <strong><code class="tag">li</code></strong> tag.</p>
+                    </td>
+                    <td>
+                        <p>Apply <code>.dropdown-header</code> to <strong><code class="tag">h1</code></strong> - <strong><code class="tag">h2</code></strong> tags (as Bootstrap no longer uses <strong><code class="tag">li</code></strong> tags to build dropdowns).</p>
+                    </td>
+                </tr>                            
+                <tr>
+                    <th class="table-secondary">
+                        Dividers
+                    </th>
+                    <td>
+                        <p>Apply the <code>.divider</code> class to the <strong><code class="tag">li</code></a> element (because it used lists to build dropdowns).</p>
+                    </td>
+                    <td>
+                        <p>Apply the <code>.dropdown-divider</code> to the <strong><code class="tag">div</code></a> element.</p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Disabled Menu Items
+                    </th>
+                    <td>
+                        <p>Apply the <code>.disabled</code> class to the <strong><code class="tag">li</code></a> element.</p>
+                    </td>
+                    <td>
+                        <p>Apply the <code>.disabled</code> class to the <strong><code class="tag">a</code></a> element.</p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">Button Groups</th>
+                </tr>            
+                <tr>
+                    <th class="table-secondary">
+                        Justified?
+                    </th>
+                    <td>
+                        <p>Supports justified button groups (via the <code>.btn-group-justified</code> class).</p>
+                    </td>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                </tr>            
+                <tr>
+                    <th class="table-secondary">
+                        Extra Small?
+                    </th>
+                    <td>
+                        <p>Supports extra small button groups (via the <code>.btn-group-xs</code> class).</p>
+                    </td>
+                    <td>
+                        <p>Not supported (dropped the <code>.btn-group-xs</code> class).</p>
+                    </td>
+                </tr>                            
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Navs</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Inline Navs
+                    </th>
+                    <td>
+                        <p>There is no <code>.nav-inline</code> class.</p>
+                    </td>
+                    <td>
+                        <p>Can use the <code>.nav-inline</code> class to explicitly specify navs to be displayed inline.</p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">Navbars</th>
+                </tr>            
+                <tr>
+                    <th class="table-secondary">
+                        Colors
+                    </th>
+                    <td>
+                        <p>Limited (preset) color options. Supports inverse navbars but not the other classes.</p>
+                    </td>
+                    <td>
+                        <p>New (preset) color options. Introduced the <code>.navbar-light</code> and the <code>.navbar-dark</code> classes, and allows the <code>.bg-*</code> classes to be used on navbars.</p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Navbar Alignment
+                    </th>
+                    <td>
+                        <p>Use <code>.navbar-right</code>, <code>.navbar-left</code> to align components within the navbar.</p>
+                    </td>
+                    <td>
+                        <p><s>Use the various <code>.pull-*-right</code> and <code>.pull-*-left</code> responsive helper classes.</s></p>
+                        <p><s>Can also use the various <code>.pull-*-none</code> classes to disable floating.</s></p>
+                        <p>Can either use spacing utilities such as <code>.mr-auto</code>, or any of the flexbox alignment utilities.</p>
+        
+                    </td>
+                </tr>        
+                <tr>
+                    <th class="table-secondary">
+                        Navbar Forms
+                    </th>
+                    <td>
+                        <p>Add the <code>.navbar-form</code> class to forms within navbars.</p>
+                    </td>
+                    <td>
+                        <p>Bootstrap 4 dropped the <code>.navbar-form</code> class. It's no longer necessary.</p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Fixed Navbars
+                    </th>
+                    <td>
+                        <p>Uses <code>.navbar-fixed-top</code> and <code>.navbar-fixed-bottom</code> to fix navbars to the top or bottom.</p>
+                    </td>
+                    <td>
+                        <p>Uses <code>.fixed-top</code> and <code>.fixed-bottom</code>.</p>
+                    </td>
+                </tr>    
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Pagination</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Default Pagination
+                    </th>
+                    <td>
+                        <p>Only requires <code>.pagination</code> to be added (to the <strong><code class="tag">ul</code></strong> element that represents the list of pages).</p>
+                    </td>
+                    <td>
+                        <p>Must also add <code>.page-item</code> to each <strong><code class="tag">li</code></strong> element and <code>.page-link</code> to each  <strong><code class="tag">a</code></strong> element.</p>
+                    </td>
+                </tr>    
+                <tr>
+                    <th class="table-secondary">
+                        Pagers
+                    </th>
+                    <td>
+                        <p>Uses <code>.previous</code> and <code>.next</code> for aligning pagers.</p>
+                    </td>
+                    <td>
+                        <p>Pagers have been dropped in Bootstrap 4 (Alpha 3).</p>
+                        <p><s>Uses <code>.pager-prev</code> and <code>.pager-next</code> for aligning pagers.</s></p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Labels</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Pill Labels
+                    </th>
+                    <td>
+                        <p>The <code>.label-pill</code> class is not available. However, Bootstrap 3 does have <strong>badges</strong> (which achieves a similar visual effect).</p>
+                    </td>
+                    <td>
+                        <p>Labels have been replaced by <strong>badges</strong> in Bootstrap 4. </p>
+                        <p>Badges can use the <code>.badge-pill</code> for rounded corners.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Tags</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>No.</p> 
+                        <p>"Tags" are called "Labels" in Bootstrap 3 (i.e. they use the <code>.label</code> class).</p>
+                    </td>
+                    <td>
+                        <p><s>Yes.</s></p>
+                        <p><s>The <code>.tag</code> class was introduced in Bootstrap 4 (Alpha 3) to replace the <code>.label</code> class.</s> </p>
+                        <p><s>This was done to disambiguate from the <strong><code class="tag">label</code></strong> element.</s></p>
+                        <p>Tags have now been renamed to "badges". These replace labels from Bootstrap 3.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Jumbotron</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Full-Width
+                    </th>
+                    <td>
+                        <p>The <code>.jumbotron-fluid</code> class is not required on full-width jumbotrons.</p>
+                    </td>
+                    <td>
+                        <p>Introduced the <code>.jumbotron-fluid</code> class for full-width jumbotrons.</p>
+                    </td>
+                </tr>                            
+        
+                <tr>
+                    <th colspan="3" class="table-info">Progress Bars</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Uses <strong><code class="tag">progress</code></a>?
+                    </th>
+                    <td>
+                        <p>Doesn't use the <strong><code class="tag">progress</code></strong> for progress bars. Instead, applies progress bar classes to nested <strong><code class="tag">div</code></strong> elements.</p>
+                    </td>
+                    <td>
+                        <p><s>Uses the HTML5 <strong><code class="tag">progress</code></strong> element when working with progress bars.</s></p>
+                        <p>Using the <strong><code class="tag">progress</code></strong> element was abandoned in Alpha 6. Bootstrap 4 now uses the <strong><code class="tag">div</code></strong> element again.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Glyphicons</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Supported.</p>
+                    </td>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                </tr>            
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Typography</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Blockquotes
+                    </th>
+                    <td>
+                        <p>Bootstrap styles are applied to the <strong><code class="tag">blockquote</code></strong> element by default.</p>
+                    </td>
+                    <td>
+                        <p>Introduced the <code>.blockquote</code> class for styling the <strong><code class="tag">blockquote</code></strong> element (i.e. styling this element is now opt-in).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Blockquote Alignment
+                    </th>
+                    <td>
+                        <p>Use <code>.blockquote-reverse</code> to align a blockquote to the right.</p>
+                    </td>
+                    <td>
+                        <p>Use the text utilities to align blockquotes (<code>.text-center</code> and <code>.text-right</code>).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Page Headers
+                    </th>
+                    <td>
+                        <p>The <code>.page-header</code> class is supported.</p>
+                    </td>
+                    <td>
+                        <p>The <code>.page-header</code> class is not supported.</p>
+                    </td>
+                </tr>            
+                <tr>
+                    <th class="table-secondary">
+                        Description Lists
+                    </th>
+                    <td>
+                        <p>The <code>.dl-horizontal</code> class was used to declare a horizontal list. </p>
+                    </td>
+                    <td>
+                        <p>Horizontal lists are now declared with the <code>.row</code> class on the <strong><code class="tag">dl</code></strong> tag, then any of the grid system's predefined classes to the <strong><code class="tag">dt</code></strong> and <strong><code class="tag">dd</code></strong> tags.</p>
+                    </td>
+                </tr>    
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Non-Responsive Usage</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Supported. You can specify a layout to be non-responsive.</p>
+                    </td>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">List Groups</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Linked List Items / Button List Items
+                    </th>
+                    <td>
+                        <p>Apply <code>.list-group-item</code> to the <strong><code class="tag">a</code></a> element.</p>
+                    </td>
+                    <td>
+                        <p>Apply <code>.list-group-item-action</code> to the <strong><code class="tag">a</code></a> element.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Collapse</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Show content
+                    </th>
+                    <td>
+                        <p>Uses <code>.in</code> to have content expanded upon page load.</p>
+                    </td>
+                    <td>
+                        <p>Uses <code>.show</code> to have content expanded upon page load.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Cards</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Not supported.</p>
+                    </td>
+                    <td>
+                        <p>Introduced in Bootstrap 4. Cards replace functionality that was previously provided by <strong>panels</strong>, <strong>wells</strong>, and <strong>thumbnails</strong>.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Panels</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Supported.</p>
+                    </td>
+                    <td>
+                        <p>Not supported. Use cards instead.</p>
+                    </td>
+                </tr>
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Wells</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Supported.</p>
+                    </td>
+                    <td>
+                        <p>Not supported. Use cards instead.</p>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th colspan="3" class="table-info">Thumbnails</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Supported.</p>
+                    </td>
+                    <td>
+                        <p>Not supported. Use cards instead.</p>
+                    </td>
+                </tr>    
+        
+                <tr>
+                    <th colspan="3" class="table-info">Breadcrumbs</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Classes
+                    </th>
+                    <td>
+                        <p>Uses the <code>.breadcrumb</code> class against the <strong><code class="tag">ul</code></a> tag.</p>
+                    </td>
+                    <td>
+                        <p>Also requires <code>.breadcrumb-item</code> to be applied against all <strong><code class="tag">li</code></strong> elements that make up the breadcrumb.</p>
+                        <p>Breadcrumbs can also be used outside of lists. For example, the <code>.breadcrumb-item</code> could be applied to a bunch of <strong><code class="tag">a</code></strong> elements that are wrapped in a <code>.breadcrumb</code> element.</p>
+                    </td>
+                </tr>                
+        
+        
+                <tr>
+                    <th colspan="3" class="table-info">Carousels</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Carousel Item
+                    </th>
+                    <td>
+                        <p>Use <code>.item</code> class.</p>
+                    </td>
+                    <td>
+                        <p>Use <code>.carousel-item</code> class.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="3" class="table-info">Affix</th>
+                </tr>
+                <tr>
+                    <th class="table-secondary">
+                        Supported?
+                    </th>
+                    <td>
+                        <p>Yes.</p>
+                    </td>
+                    <td>
+                        <p>No.</p>
+                    </td>
+                </tr>    
+            </tbody>
+        </table> -->
+	</div>
+	<script type="text/javascript" src ="js/jquery.js"></script>
+	<script type="text/javascript" src ="js/bootstrap.js"></script>
+	<script type="text/javascript" src ="ecma/02-cons.js"></script>
+</body>
+</html>
